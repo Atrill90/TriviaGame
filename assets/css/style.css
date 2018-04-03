@@ -10,6 +10,6 @@
     font-stretch: normal;
     unicode-range: U+0020-007A;
 }
-h1{
+h1,h2{
     font-family: 'Game of Thrones';
 }  
