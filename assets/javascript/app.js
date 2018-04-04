@@ -60,17 +60,19 @@ var questions = [{
         answer: "choice-0"
     }
 ];
+// Use the for each function to loop over the array of question objects
 
 questions.forEach(function (question, index) {
-
+//p element created dynamically and appended the question text.
     var node = document.createElement("p");
     node.classList = `gameOfThronesFont question-${index} `;
     var questionText = document.createTextNode(question.question);
     node.appendChild(questionText);
+    //created div element and appended the p element into the div
     var questionQC = document.createElement("div");
     questionQC.classList = 'col-md-12 border mt-4 p-5';
     questionQC.appendChild(node);
-
+// Used for each loop to go over each question choice and create a button and then appended them to the choice house
     question.choices.forEach(function (choice, index) {
         var choiceHouse = document.createElement("button");
         choiceHouse.classList = `ml-5 choice-${index} winter`;
@@ -79,16 +81,18 @@ questions.forEach(function (question, index) {
 
 
     });
+    // Append questions and choices to the parent div
     document.querySelector(".questionField").appendChild(questionQC);
 });
-
-var buttonsArray = Array.from(document.querySelectorAll(".winter"))
+    //creating an array from the winter nodelist 
+var buttonsArray = Array.from(document.querySelectorAll(".winter"));
+// for each button added click event and call the check user input function
 buttonsArray.forEach(button => {
     button.addEventListener("click", checkUserInput);
 });
 
 function checkUserInput(e) {
-
+// capture the event and the traverse the dom to get the question and user selected answer
     var currentQuestion,
         userAnswer;
     if (e.target.classList.contains('choice-0')) {
@@ -109,7 +113,7 @@ function checkUserInput(e) {
         checkCorrectAnswer(currentQuestion, userAnswer);
     }
 }
-
+// checks correct answer against the array object answers and alerts. 
 function checkCorrectAnswer(currentQuestion, userAnswer) {
     questions.forEach(question => {
         if (question.questionNum === currentQuestion) {
