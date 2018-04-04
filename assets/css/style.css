@@ -13,3 +13,7 @@
 h1,h2{
     font-family: 'Game of Thrones';
 }  
+.gameOfThronesFont{
+    font-family: 'Game of Thrones';
+    word-spacing: 12px;
+}
