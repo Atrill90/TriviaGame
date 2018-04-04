@@ -43,7 +43,7 @@ var questions = [{
     },
     {
         questionNum: "question-7",
-        question: 'What is Arya\'s sword',
+        question: 'What is Arya\'s sword\'s name',
         choices: ["Needler", "Needle", "Pointy", "Mr. Stick"],
         answer: "choice-1"
     },
@@ -60,17 +60,47 @@ var questions = [{
         answer: "choice-0"
     }
 ];
+
+var correctGuesses = 0;
+var wrongGuesses = 0;
+var intervalId;
+var number = 90;
+
+
+$("#start").click(function(){
+run();
+});
+
+function run(){
+   clearInterval(intervalId);
+    number = 90;
+    intervalId = setInterval(decrement, 1000);
+    $("#start").css('display','none')
+   
+}
+function decrement(){
+    number--;
+    document.querySelector(".timerSpot").textContent = number;
+    if (number ===0){
+        stop();
+        alert('Times up!')
+    }
+}
+function stop(){
+    clearInterval(intervalId);
+}
+
 // Use the for each function to loop over the array of question objects
 
 questions.forEach(function (question, index) {
-//p element created dynamically and appended the question text.
+//p element created dynamically and appended the question text.Gave each p element 2 classes 
     var node = document.createElement("p");
     node.classList = `gameOfThronesFont question-${index} `;
     var questionText = document.createTextNode(question.question);
     node.appendChild(questionText);
     //created div element and appended the p element into the div
     var questionQC = document.createElement("div");
-    questionQC.classList = 'col-md-12 border mt-4 p-5';
+    questionQC.classList = 'col-md-12 border mt-4 p-5 questionBackground';
     questionQC.appendChild(node);
 // Used for each loop to go over each question choice and create a button and then appended them to the choice house
     question.choices.forEach(function (choice, index) {
@@ -118,8 +148,12 @@ function checkCorrectAnswer(currentQuestion, userAnswer) {
     questions.forEach(question => {
         if (question.questionNum === currentQuestion) {
             if (question.answer === userAnswer) {
+                correctGuesses++;
+                
                 alert('correct!')
+
             } else {
+                wrongGuesses++;
                 alert('you suck')
             }
         }

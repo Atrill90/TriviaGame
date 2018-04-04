@@ -2,18 +2,46 @@
     font-family:'Game of Thrones';
     src: url('../fonts/Game of Thrones.eot');
 	src: url('../fonts/Game of Thrones.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Game of Thrones.woff2') format('woff2'),
-		url('../fonts/Game of Thrones.woff') format('woff'),
+		/* url('../fonts/Game of Thrones.woff2') format('woff2'),
+		url('../fonts/Game of Thrones.woff') format('woff'), */
 		url('../fonts/Game of Thrones.svg#Game of Thrones') format('svg');
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
     unicode-range: U+0020-007A;
 }
-h1,h2{
+h1{
     font-family: 'Game of Thrones';
+    color: rgba(243, 235, 235, 0.966);
 }  
+h2{
+    font-family: 'Game of Thrones';
+}
 .gameOfThronesFont{
     font-family: 'Game of Thrones';
     word-spacing: 12px;
+}
+
+body{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.jumbotron{
+    background-color:#2e404a;
+    text-align: center;
+    opacity: .8;
+}
+.questionBackground{
+    background-color: white;
+    opacity: .8;
+}
+.timerSpot{
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    position: fixed;
+    z-index: 2;
+    background: white;
+    padding: 0 5px 0 5px;
 }
