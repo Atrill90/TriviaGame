@@ -61,8 +61,8 @@ var questions = [{
     }
 ];
 
-var correctGuesses = 0;
-var wrongGuesses = 0;
+var correctGuesses = [];
+var wrongGuesses = [];
 var intervalId;
 var number = 90;
 
@@ -71,11 +71,18 @@ $("#start").click(function(){
 run();
 $("#questionTag").css('display','inline')
 questionShow();
+$(".submit").css('display','inline')
+});
+
+$(".submit").click(function(){
+    $(".modal-body").html(`<div>Correct Answers: ${correctGuesses.length} </div> <div> Wrong Answers: ${wrongGuesses.length}`);
+    $('#scoreBoxModal').modal('show');
+    clearInterval(intervalId);
 });
 
 function run(){
    clearInterval(intervalId);
-    number = 90;
+    number = 60;
     intervalId = setInterval(decrement, 1000);
     $("#start").css('display','none')
    
@@ -85,7 +92,9 @@ function decrement(){
     document.querySelector(".timerSpot").textContent = number;
     if (number ===0){
         stop();
-        alert('Times up!')
+        alert('Times up! Click ok to view your score and hit refresh to play again!')
+        $(".modal-body").html(`<div>Correct Answers: ${correctGuesses.length} </div> <div> Wrong Answers: ${wrongGuesses.length}`);
+        $('#scoreBoxModal').modal('show');
     }
 }
 function stop(){
@@ -107,7 +116,7 @@ questions.forEach(function (question, index) {
 // Used for each loop to go over each question choice and create a button and then appended them to the choice house
     question.choices.forEach(function (choice, index) {
         var choiceHouse = document.createElement("button");
-        choiceHouse.classList = `ml-5 choice-${index} winter`;
+        choiceHouse.classList = `ml-5 choice-${index} winter btn btn-secondary`;
         choiceHouse.appendChild(document.createTextNode(choice));
         questionQC.appendChild(choiceHouse);
 
@@ -151,13 +160,14 @@ function checkCorrectAnswer(currentQuestion, userAnswer) {
     questions.forEach(question => {
         if (question.questionNum === currentQuestion) {
             if (question.answer === userAnswer) {
-                correctGuesses++;
+                correctGuesses.push(userAnswer);
                 
-                alert('correct!')
+                
 
             } else {
-                wrongGuesses++;
-                alert('you suck')
+                wrongGuesses.push(userAnswer);
+                console.log(wrongGuesses);
+                
             }
         }
     });
