@@ -64,7 +64,6 @@ var questions = [{
 var correctGuesses = [];
 var wrongGuesses = [];
 var intervalId;
-var number = 90;
 
 
 $("#start").click(function(){
