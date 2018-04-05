@@ -115,7 +115,7 @@ questions.forEach(function (question, index) {
 // Used for each loop to go over each question choice and create a button and then appended them to the choice house
     question.choices.forEach(function (choice, index) {
         var choiceHouse = document.createElement("button");
-        choiceHouse.classList = `ml-5 choice-${index} winter btn btn-secondary`;
+        choiceHouse.classList = `ml-5 choice-${index} winter btn btn-secondary  aria-pressed="true"`;
         choiceHouse.appendChild(document.createTextNode(choice));
         questionQC.appendChild(choiceHouse);
 
@@ -172,3 +172,8 @@ function checkCorrectAnswer(currentQuestion, userAnswer) {
     });
 }
 }
+// Some things I'd like to improve if possible
+// I couldn't figure out how to lock people out from selecting more than one button since all those buttons are created dynamically
+// My timer still looks a little shabby and I'd like to spruce it up
+// I'd like to add something where you click the button and it highlights your choice
+// Pretty happy with how things turned out 
