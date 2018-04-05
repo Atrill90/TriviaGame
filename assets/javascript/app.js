@@ -81,7 +81,7 @@ $(".submit").click(function(){
 
 function run(){
    clearInterval(intervalId);
-    number = 60;
+    number = 90;
     intervalId = setInterval(decrement, 1000);
     $("#start").css('display','none')
    
@@ -115,7 +115,7 @@ questions.forEach(function (question, index) {
 // Used for each loop to go over each question choice and create a button and then appended them to the choice house
     question.choices.forEach(function (choice, index) {
         var choiceHouse = document.createElement("button");
-        choiceHouse.classList = `ml-5 choice-${index} winter btn btn-secondary  aria-pressed="true"`;
+        choiceHouse.classList = `ml-5 choice-${index} winter btn btn-secondary aria-pressed="true"`;
         choiceHouse.appendChild(document.createTextNode(choice));
         questionQC.appendChild(choiceHouse);
 
