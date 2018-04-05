@@ -66,11 +66,22 @@ var wrongGuesses = [];
 var intervalId;
 
 
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+    x.play(); 
+} 
+
+function pauseAudio() { 
+    x.pause(); 
+} 
+
 $("#start").click(function(){
 run();
 $("#questionTag").css('display','inline')
 questionShow();
 $(".submit").css('display','inline')
+x.play(); 
 });
 
 $(".submit").click(function(){
