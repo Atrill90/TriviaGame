@@ -45,3 +45,6 @@ body{
     background: white;
     padding: 0 5px 0 5px;
 }
+#questionTag{
+    display: none;
+}

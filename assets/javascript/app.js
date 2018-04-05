@@ -69,6 +69,8 @@ var number = 90;
 
 $("#start").click(function(){
 run();
+$("#questionTag").css('display','inline')
+
 });
 
 function run(){
@@ -114,7 +116,8 @@ questions.forEach(function (question, index) {
     // Append questions and choices to the parent div
     document.querySelector(".questionField").appendChild(questionQC);
 });
-    //creating an array from the winter nodelist 
+
+  //creating an array from the winter nodelist 
 var buttonsArray = Array.from(document.querySelectorAll(".winter"));
 // for each button added click event and call the check user input function
 buttonsArray.forEach(button => {
