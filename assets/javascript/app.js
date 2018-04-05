@@ -70,7 +70,7 @@ var number = 90;
 $("#start").click(function(){
 run();
 $("#questionTag").css('display','inline')
-
+questionShow();
 });
 
 function run(){
@@ -93,7 +93,7 @@ function stop(){
 }
 
 // Use the for each function to loop over the array of question objects
-
+function questionShow(){
 questions.forEach(function (question, index) {
 //p element created dynamically and appended the question text.Gave each p element 2 classes 
     var node = document.createElement("p");
@@ -161,4 +161,5 @@ function checkCorrectAnswer(currentQuestion, userAnswer) {
             }
         }
     });
+}
 }
